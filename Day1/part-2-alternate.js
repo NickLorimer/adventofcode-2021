@@ -1,6 +1,8 @@
 const { measurements } = require("./data");
 const array = measurements.split("\n");
 
+const start = Date.now();
+
 const windowMeasurements = [];
 
 array.forEach((measurement, index) => {
@@ -17,8 +19,6 @@ array.forEach((measurement, index) => {
   }
 });
 
-// console.log(windowMeasurements);
-
 let increases = 0;
 
 windowMeasurements.forEach((measurement, index) => {
@@ -30,3 +30,4 @@ windowMeasurements.forEach((measurement, index) => {
 });
 
 console.log(increases);
+console.log(Date.now() - start);

@@ -1,6 +1,8 @@
 const { measurements } = require("./data");
 const array = measurements.split("\n");
 
+const start = Date.now();
+
 const windowMeasurements = array.map((measurement, index) => {
   const measurement1 = parseInt(measurement);
   const measurement2 = parseInt(array[index + 1]) || null;
@@ -11,8 +13,6 @@ const windowMeasurements = array.map((measurement, index) => {
   }
   return measurement1 + measurement2 + measurement3;
 });
-
-// console.log(windowMeasurements);
 
 let increases = 0;
 
@@ -25,3 +25,5 @@ windowMeasurements.forEach((measurement, index) => {
 });
 
 console.log(increases);
+
+console.log(Date.now() - start);
